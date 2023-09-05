@@ -1,5 +1,9 @@
 <?php
     include_once 'header.php';
+    require_once 'functions.php';
+
+    // Creates the university database if it has not already been created
+    createDatabase();
 ?>
 
 <!DOCTYPE html>

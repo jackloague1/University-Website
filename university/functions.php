@@ -1,5 +1,29 @@
 <?php
 
+# Creates the SQL database if it has not been created already
+function createDatabase() {
+    $link = mysqli_connect('localhost', 'root', '');
+
+    $db_selected = mysqli_select_db($link, 'universitydb');
+
+    if (!$db_selected) {
+        $sql = 'CREATE DATABASE universitydb';
+
+        if (mysqli_query($link, $sql))
+        {
+            echo "Database created successfully";
+        }
+        else
+        {
+            echo "Error creating database: " . mysqli_error($link);
+        }
+
+        $db = new PDO('mysql:host=localhost;dbname=universitydb', 'root', '');
+        $sql = file_get_contents('universitydb.sql');
+        $query = $db->exec($sql);
+    }
+}
+
 # Checks if a professor's SSN already exists in database
 function ssnExists($conn, $ssn) {
     $sql = "SELECT * FROM professors WHERE ssn = ?;";
