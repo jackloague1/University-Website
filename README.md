@@ -1,5 +1,5 @@
 # University-Website
-A simple university website where professors and students can view information from an SQL database.
+A group project for a simple university website where professors and students can view information from an SQL database.
 
 To run the website in a web browser:
 1) Install XAMPP (Download: https://www.apachefriends.org/download.html)
